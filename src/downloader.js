@@ -43,7 +43,7 @@ const getCookieBySendingADummyRequest = (symbol) =>{
 
 const getData = async (symbol)=>{
     let crumb = await getCookieBySendingADummyRequest(symbol);
-    console.log("cookie:",crumb);
+    console.log("Cookie:",crumb);
 };
 
 module.exports = {
