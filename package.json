@@ -32,7 +32,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "commander": "^2.15.0",
+    "lodash": "^4.17.5",
     "npm": "^5.7.1",
-    "progress": "^2.0.0"
+    "progress": "^2.0.0",
+    "set-cookie-parser": "^2.1.1"
   }
 }
