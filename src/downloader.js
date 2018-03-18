@@ -27,12 +27,16 @@ const readCookie = (response) => {
             }
         }
     });
+    if(crumb === undefined){
+        throw new Error("Can not find cookie.");
+    }
     return crumb;
 };
 
 const getCookieBySendingADummyRequest = (symbol) =>{
     let url = util.format( yahooHistory,symbol );
     return axios.get(url).then(readCookie).catch((err)=>{
+        console.log("ERROR:",err);
         return err;
     });
 };

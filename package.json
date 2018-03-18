@@ -13,17 +13,22 @@
     "type": "git",
     "url": "git+ssh://git@github.com/korayguclu/yahoo-dl.git"
   },
+  "engines" : { "node" : ">=8.9.0" } ,
   "keywords": [
     "yahoo",
+    "yahoo-finance-api",
+    "yahoo-finance",
+    "yahoo-api",
+    "finance",
     "stock",
-    "price",
-    "downloader",
-    "yahoo",
-    "downloader",
-    "yahoo",
-    "finance"
+    "stock-market",
+    "stock-prices",
+    "stock-data",
+    "stock-trading",
+    "stock-analysis",
+    "downloader"
   ],
-  "author": "Koray Guclu",
+  "author": "Koray Guclu (http://korayguclu.de)",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/korayguclu/yahoo-dl/issues"
@@ -33,7 +38,6 @@
     "axios": "^0.18.0",
     "commander": "^2.15.0",
     "lodash": "^4.17.5",
-    "npm": "^5.7.1",
     "progress": "^2.0.0",
     "set-cookie-parser": "^2.1.1"
   }
