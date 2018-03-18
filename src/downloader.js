@@ -49,23 +49,23 @@ const getSymbolData = (symbol, cookie, crumb) => {
     let start = moment(currentDate).subtract( 12,'month') ;
 
     let downloadUrl = util.format( yahooDownload,symbol,start.unix(),end.unix(),crumb );
-    let dataFilename =  process.cwd()+'/'+symbol +'-'+ end.format(DATE_FORMAT)+'_'+start.format(DATE_FORMAT)+'.csv';
+    let dataFilename =  _.upperCase(symbol) +'-'+ end.format(DATE_FORMAT)+'_'+start.format(DATE_FORMAT);
+    dataFilename = process.cwd()+'/'+dataFilename+'.csv';
     console.log("file:",dataFilename);
     return axios.get(downloadUrl , { headers: { Cookie: "B="+cookie.value } })
         .then(function(response){
-            console.log("Response:",response.data);
             fs.writeFile(dataFilename, response.data, (err) => {
                 if (err) throw err;
                 console.log(symbol+' [OK] -> '+dataFilename);
             });
             return response.data;
         }).catch((err)=>{
-            console.log("ERROR:",err.response.status);
+            console.log("ERROR:",err.response.status," Please try again.");
             return err;
         });
 }
 
-const getData = async (symbol) => {
+const getData = async (symbol,options) => {
     let cookieAndCrumb = await getCookieBySendingADummyRequest(symbol);
     console.log(`Cookie B '${cookieAndCrumb.cookie.value}' and Crumb '${cookieAndCrumb.crumb}'`);
     let data = await getSymbolData(symbol,cookieAndCrumb.cookie,cookieAndCrumb.crumb);
