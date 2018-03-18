@@ -1,0 +1,38 @@
+{
+  "name": "yahoo-dl",
+  "version": "1.0.0",
+  "description": "A command-line tool for downloading yahoo stock prices.",
+  "main": "index.js",
+  "bin": {
+    "yahoo-dl": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/korayguclu/yahoo-dl.git"
+  },
+  "keywords": [
+    "yahoo",
+    "stock",
+    "price",
+    "downloader",
+    "yahoo",
+    "downloader",
+    "yahoo",
+    "finance"
+  ],
+  "author": "Koray Guclu",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/korayguclu/yahoo-dl/issues"
+  },
+  "homepage": "https://github.com/korayguclu/yahoo-dl#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "commander": "^2.15.0",
+    "npm": "^5.7.1",
+    "progress": "^2.0.0"
+  }
+}
