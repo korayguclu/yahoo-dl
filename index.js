@@ -7,15 +7,15 @@ const downloader = require('./src/downloader');
 program
     .name('yahoo-dl')
     .option('-t, --timeframe <d,w,m>','Timeframe d for daily, w for weekly, m for weekly.')
-    ;
+    .option('-o, --output <outputfilename>', 'Symbol short code');
 
 
 program
     .command('get <symbol>')
-    .option('-o, --output <outputfilename>', 'Symbol short code')
-    .action( ( symbol, options) => {
-      console.log(`Downloading symbol '${symbol}' to file ${symbol}.csv `);
-      downloader.getData(symbol,options);
+    .action( ( symbol) => {
+        let options = { timeframe: program.timeframe || 'w', output: program.output || ''  };
+        console.log(`Downloading symbol '${symbol}' to file ${symbol}.csv `);
+        downloader.getData(symbol,options);
 });
 
 program.parse(process.argv);
