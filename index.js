@@ -6,14 +6,13 @@ const downloader = require('./src/downloader');
 
 program
     .name('yahoo-dl')
-    .option('-t, --timeframe <d,w,m>','Timeframe d for daily, w for weekly, m for weekly.')
-    .option('-o, --output <outputfilename>', 'Symbol short code');
+    .option('-t, --timeframe <d,w,m>','Timeframe d for daily, w for weekly, m for monthly.') ;
 
 
 program
     .command('get <symbol>')
     .action( ( symbol) => {
-        let options = { timeframe: program.timeframe || 'w', output: program.output || ''  };
+        let options = { timeframe: program.timeframe || 'w'  };
         console.log(`Downloading symbol '${symbol}' to file ${symbol}.csv `);
         downloader.getData(symbol,options);
 });

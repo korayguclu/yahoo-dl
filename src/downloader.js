@@ -65,14 +65,18 @@ const getSymbolData = (symbol, cookie, crumb, options) => {
         });
 }
 
-const getData = async (symbol,options) => {
+const get = async (symbol,options) => {
+    if(!symbol){
+        throw new Error('Symbol can not be empty.');
+        return ;
+    }
     let cookieAndCrumb = await getCookieBySendingADummyRequest(symbol);
     console.log(`Cookie B '${cookieAndCrumb.cookie.value}' and Crumb '${cookieAndCrumb.crumb}'`);
     let data = await getSymbolData(symbol,cookieAndCrumb.cookie,cookieAndCrumb.crumb,options);
 };
 
 module.exports = {
-    getData
+    get
 };
 
 
