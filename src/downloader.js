@@ -6,6 +6,7 @@ const setCookieParser = require('set-cookie-parser');
 const _ = require('lodash');
 const moment = require('moment');
 const fs = require('fs');
+const path = require('path');
 
 const DATE_FORMAT = "YYYYMMDD";
 const regex = /.*\"CrumbStore\":\{\"crumb\":\"([a-zA-Z0-9]+)\"\}/;
@@ -49,13 +50,20 @@ const getSymbolData = (symbol, cookie, crumb, options) => {
     let start = moment(currentDate).subtract( 12,'month') ;
     let interval = timeframes[options.timeframe] || timeframes.w;
     let downloadUrl = util.format( yahooDownload,symbol,start.unix(),end.unix(),interval,crumb );
-    let dataFilename =  _.upperCase(symbol) +'-'+ end.format(DATE_FORMAT)+'_'+start.format(DATE_FORMAT);
-    dataFilename = process.cwd()+'/'+dataFilename+'.csv';
+    let dataFilename =  _.upperCase(symbol) +'__'+ end.format(DATE_FORMAT)+'-'+start.format(DATE_FORMAT);
+    
+    dataFilename = path.join(process.cwd(), options.output ,dataFilename+'.csv');
     console.log("file:",dataFilename);
     return axios.get(downloadUrl , { headers: { Cookie: "B="+cookie.value } })
         .then(function(response){
             fs.writeFile(dataFilename, response.data, (err) => {
-                if (err) throw err;
+                if (err) {
+                    if (err.code === 'ENOENT') {
+                      console.error('ERROR: Directory '+path.join(process.cwd(), options.output) + ' do not exist.');
+                      return;
+                    }
+                    throw err;
+                }
                 console.log(symbol+' [OK] -> '+dataFilename);
             });
             return response.data;
