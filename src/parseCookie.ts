@@ -21,8 +21,8 @@ const parseCookie = (response) => {
             }
         }
     });
-
-    return {cookie,crumb};
+    const data = {crumb:crumb,cookieValue:cookie.value } ;
+    return data;
 };
 
 export default parseCookie;
