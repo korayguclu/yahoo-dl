@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import commander from 'commander';
 import getCookieBySendingADummyRequest from './getCookie';
 import getUrl from './getUrl';
@@ -10,9 +12,9 @@ import path from 'path';
 let cli = new commander.Command();
 cli.name('yahoo-dl')
 .version('1.0.0')
-.option('-t, --timeframe <d,w,m>','Timeframe d for daily, w for weekly, m for monthly.','w') 
-.option('-p, --period <104>','Period of the selected time frame e.g. 200, 12 etc...', 104 ) 
-.option('-o, --stdout','Output will be written to stdout.') 
+.option('-t, --timeframe <d,w,m>','Timeframe d for daily, w for weekly, m for monthly.','w')
+.option('-p, --period <104>','Period of the selected time frame e.g. 200, 12 etc...', 104 )
+.option('-o, --stdout','Output will be written to stdout.')
 .option('-f, --filename <symbol.csv>', 'Output will be written to a file default is symbol.csv')
 .description('Yahoo stock price downloader.');
 
