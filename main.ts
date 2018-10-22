@@ -3,7 +3,7 @@ import getCookieBySendingADummyRequest from './src/getCookie';
 import getUrl from './src/getUrl';
 import parseCookie from './src/parseCookie';
 import getPriceData from './src/getPriceData';
-import ora from 'ora'
+import ora from 'ora';
 
 let cli = new commander.Command();
 cli.name('yahoo-dl')
@@ -18,19 +18,23 @@ cli.command('get <symbol> ')
     .action((symbol,options)=>{
         const { timeframe, period } = cli.opts();
         const spinner =  ora();
-        spinner.start(`Preparing symbol ${symbol} for timeframe ${timeframe}`);
+        const meta = `${symbol}  ${period}${timeframe}`;
+        spinner.start(`Preparing: ${meta}`);
         const cookies = getCookieBySendingADummyRequest(symbol);
         const priceData = cookies.then((response)=>{
             const {crumb,cookieValue} = parseCookie(response);
-            spinner.succeed();
+            spinner.text = `Building url: ${meta}`;
             const url = getUrl(timeframe,period,symbol, crumb);
-            return getPriceData(url,cookieValue);
-        }).catch((err)=>{
-            spinner.fail();
-            return err;
+            spinner.text = `Getting price data: ${meta}`;
+            const priceData = getPriceData(url,cookieValue);
+            spinner.succeed();
+            return priceData;
         });
         priceData.then((data)=>{
             console.log(data.data);
+        }).catch((err)=>{
+            spinner.fail();
+            console.error(err);
         });
     });
 
