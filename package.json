@@ -4,9 +4,10 @@
   "description": "A command-line tool for downloading yahoo stock prices.",
   "main": "./src/downloader.js",
   "bin": {
-    "yahoo-dl": "./index.js"
+    "yahoo-dl": "./dist/main.js"
   },
   "scripts": {
+    "dist": "tsc",
     "build": "ts-node ./src/main.ts",
     "test": "jest"
   },
