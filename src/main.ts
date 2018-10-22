@@ -1,8 +1,8 @@
 import commander from 'commander';
-import getCookieBySendingADummyRequest from './src/getCookie';
-import getUrl from './src/getUrl';
-import parseCookie from './src/parseCookie';
-import getPriceData from './src/getPriceData';
+import getCookieBySendingADummyRequest from './getCookie';
+import getUrl from './getUrl';
+import parseCookie from './parseCookie';
+import getPriceData from './getPriceData';
 import ora from 'ora';
 
 let cli = new commander.Command();
