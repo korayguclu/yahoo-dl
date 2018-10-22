@@ -35,7 +35,6 @@ cli.command('get <symbol> ')
         priceData.then((response)=>{
             if ( stdout ) {
                 console.log(response.data);
-                spinner.succeed(meta);
             } else if ( filename ) {
                 spinner.info("Writing to "+path.resolve(__dirname, `${symbol}.csv` ));
                 fs.writeFileSync(path.resolve(__dirname, filename ), response.data);
@@ -44,7 +43,6 @@ cli.command('get <symbol> ')
                 fs.writeFileSync(path.resolve(__dirname, `${symbol}.csv` ), response.data);
             }
             spinner.succeed("Done "+meta);
-
         }).catch((err)=>{
             spinner.fail('An error occured. Please try again later.');
         });
