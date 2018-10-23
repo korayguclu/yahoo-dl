@@ -5,11 +5,15 @@ A command-line tool for downloading yahoo stock prices.
 
     npm install -g yahoo-dl
 
+![yahoo-dl installation](docs/installation.gif?raw=true "yahoo-dl installation")    
+
 ## Usage
 
 To download weekly data for Apple you need to use following command from commandline.
 
     yahoo-dl -t w get AAPL
+
+![Download Stock Price](docs/download-data.gif?raw=true "Download Stock Price") 
 
 This will download weekly historically data for the latest 12 months. 
 

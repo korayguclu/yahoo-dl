@@ -38,11 +38,11 @@ cli.command('get <symbol> ')
             if ( stdout ) {
                 console.log(response.data);
             } else if ( filename ) {
-                spinner.info("Writing to "+path.resolve(__dirname, `${symbol}.csv` ));
-                fs.writeFileSync(path.resolve(__dirname, filename ), response.data);
+                spinner.info("Writing to "+path.resolve('./', `${symbol}.csv` ));
+                fs.writeFileSync(path.resolve('./', filename ), response.data);
             } else {
-                spinner.info("Writing to "+path.resolve(__dirname, `${symbol}.csv` ));
-                fs.writeFileSync(path.resolve(__dirname, `${symbol}.csv` ), response.data);
+                spinner.info("Writing to "+path.resolve('./', `${symbol}.csv` ));
+                fs.writeFileSync(path.resolve('./', `${symbol}.csv` ), response.data);
             }
             spinner.succeed("Done "+meta);
         }).catch((err)=>{
