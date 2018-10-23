@@ -211,3 +211,89 @@ Here are some of the world index components.
     CEMTS.IS
     ULKER.IS
     SKBNK.IS
+
+# Fidelity select sectors
+
+[Fidelity Select sectors](https://fundresearch.fidelity.com/mutual-funds/category-performance-annual-total-returns/SECTOR) for PANKIN Strategy
+
+    FSAIX
+    FSAVX
+    FSRBX
+    FBIOX
+    FSLBX
+    FSCHX
+    FSDCX
+    FDCPX
+    FSHOX
+    FSCPX
+    FSVLX
+    FDFAX
+    FSDAX
+    FSENX
+    FSESX
+    FSLEX
+    FIDSX
+    FSAGX
+    FSPHX
+    FSHCX
+    FCYIX
+    FSPCX
+    FBSOX
+    FDLSX
+    FSDPX
+    FSMEX
+    FBMPX
+    FSNGX
+    FNARX
+    FPHAX
+    FSRPX
+    FSELX
+    FSCSX
+    FSPTX
+    FSTCX
+    FSRFX
+    FSUTX
+    FWRLX
+    FIUIX
+
+# Country ETFS
+
+[Country ETFS](https://www.etf.com/channels/single-country-etfs)
+
+    EWJ
+    EWZ
+    INDA
+    EWT
+    MCHI
+    EWG
+    EWC
+    EWU
+    EWA
+    EWW
+    EWL
+    EWP
+    EWQ
+    EWM
+    EWS
+    TUR
+    ERUS
+    THD
+    ECH
+    EIDO
+    EWI
+    EPOL
+    EWD
+    EPU
+    EWN
+    EWO
+    EPHE
+    EIS
+    EIRL
+    CNYA
+    EWK
+    QAT
+    EDEN
+    EFNL
+    ENOR
+    ICOL
+    AGT
