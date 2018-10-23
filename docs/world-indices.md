@@ -214,7 +214,7 @@ Here are some of the world index components.
 
 # Fidelity select sectors
 
-[Fidelity Select sectors](https://fundresearch.fidelity.com/mutual-funds/category-performance-annual-total-returns/SECTOR) for PANKIN Strategy
+[Fidelity Select sectors](https://fundresearch.fidelity.com/mutual-funds/category-performance-annual-total-returns/SECTOR) for [PANKIN Strategy](http://www.pankin.com/)
 
     FSAIX
     FSAVX
