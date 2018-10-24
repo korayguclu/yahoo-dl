@@ -1,4 +1,4 @@
-# World indices
+# symbols
 
 Here are some of the world index components. 
 
