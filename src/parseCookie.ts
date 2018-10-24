@@ -1,5 +1,5 @@
 import SetCookieParser from 'set-cookie-parser';
-import { cookieRegex } from './constants';
+import { REGEX_COOKIE } from './constants';
 import _ from 'lodash';
 import moment from 'moment';
 
@@ -13,7 +13,7 @@ const getCandidateMatch = (line)=>{
 }
 
 const parseCrumbData = (candidate)=>{
-    let k = candidate.match(cookieRegex);
+    let k = candidate.match(REGEX_COOKIE);
     return k && k.groups && k.groups.crumb;
 }
 
