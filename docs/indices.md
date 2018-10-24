@@ -27,12 +27,12 @@ Here are some of the world index components.
 [County etf symbols are here](symbols/bist100.csv)
 
 
-# Fidelity select sectors
+## Fidelity select sectors
 [Fidelity Select sectors](https://fundresearch.fidelity.com/mutual-funds/category-performance-annual-total-returns/SECTOR) for [PANKIN Strategy](http://www.pankin.com/)
 
 [Fidelity select sectors symbols are here](symbols/fidelity-sectors.csv)
 
-# Country ETFS
+## Country ETFS
 [Country ETFS](https://www.etf.com/channels/single-country-etfs)
 
 [County etf symbols are here](symbols/country-etfs.csv)
