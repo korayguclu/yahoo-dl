@@ -55,6 +55,9 @@ Output is as follows
     2018-10-08,287.049988,288.859985,270.359985,275.950012,275.950012,834839200
     2018-10-15,275.549988,281.149994,274.299988,276.250000,276.250000,605470400
 
+# Symbols
+
+You can find some of the [symbols from here](docs/indices.md) 
 
 # License 
 
