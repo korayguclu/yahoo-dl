@@ -11,7 +11,7 @@ import path from 'path';
 
 let cli = new commander.Command();
 cli.name('yahoo-dl')
-.version('1.0.0')
+.version('1.0.12')
 .option('-t, --timeframe <d,w,m>','Timeframe d for daily, w for weekly, m for monthly.','w')
 .option('-p, --period <104>','Period of the selected time frame e.g. 200, 12 etc...', 104 )
 .option('-o, --stdout','Output will be written to stdout.')
@@ -27,8 +27,8 @@ cli.command('get <symbol> ')
         const meta = `${symbol}  ${period}${timeframe}`;
         spinner.start(`Preparing: ${meta}`);
         if( skip && fs.existsSync(path.resolve('./', `${symbol}.csv` )) ) {
-            spinner.info(`File '${symbol}.csv' already exists`);
-            return;
+            spinner.succeed(`File '${symbol}.csv' already exists`);
+            process.exit();
         }
         const cookies = getCookieBySendingADummyRequest(symbol);
         const priceData = cookies.then((response)=>{
