@@ -28,6 +28,7 @@ This will download weekly historically data for the latest 12 months.
       -p, --period <104>           Period of the selected time frame e.g. 200, 12 etc... (default: 104)
       -o, --stdout                 Output will be written to stdout.
       -f, --filename <symbol.csv>  Output will be written to a file default is symbol.csv
+      -s, --skip                   Do not overwrite if file exits. Usefull to retry a download.
       -h, --help                   output usage information
 
     Commands:
@@ -54,6 +55,28 @@ Output is as follows
     2018-10-01,292.109985,293.209991,286.220001,287.820007,287.820007,391529300
     2018-10-08,287.049988,288.859985,270.359985,275.950012,275.950012,834839200
     2018-10-15,275.549988,281.149994,274.299988,276.250000,276.250000,605470400
+
+# Download symbol list
+
+Download fidelity sector data for last 20 weeks 
+
+    cat fidelity-sectors.txt | xargs -L 1 -t yahoo-dl -t w -p 20 get
+
+Output will be as follows
+
+    yahoo-dl -t w -p 20 get FSTCX
+    ℹ Writing to /Users/kg/git/stock-ranker/FSTCX.csv
+    ✔ Done FSTCX  20w
+    yahoo-dl -t w -p 20 get FSRFX
+    ℹ Writing to /Users/kg/git/stock-ranker/FSRFX.csv
+    ✔ Done FSRFX  20w
+    yahoo-dl -t w -p 20 get FSUTX
+    ℹ Writing to /Users/kg/git/stock-ranker/FSUTX.csv
+    ✔ Done FSUTX  20w
+    yahoo-dl -t w -p 20 get FWRLX
+    ℹ Writing to /Users/kg/git/stock-ranker/FWRLX.csv
+    ✔ Done FWRLX  20w
+
 
 # Symbols
 

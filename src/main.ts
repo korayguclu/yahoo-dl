@@ -16,15 +16,20 @@ cli.name('yahoo-dl')
 .option('-p, --period <104>','Period of the selected time frame e.g. 200, 12 etc...', 104 )
 .option('-o, --stdout','Output will be written to stdout.')
 .option('-f, --filename <symbol.csv>', 'Output will be written to a file default is symbol.csv')
+.option('-s, --skip','Do not overwrite if file exits. Usefull to retry a download.')
 .description('Yahoo stock price downloader.');
 
 
 cli.command('get <symbol> ')
     .action((symbol,options)=>{
-        const { timeframe, period, filename, stdout } = cli.opts();
+        const { timeframe, period, filename, stdout, skip } = cli.opts();
         const spinner =  ora();
         const meta = `${symbol}  ${period}${timeframe}`;
         spinner.start(`Preparing: ${meta}`);
+        if( skip && fs.existsSync(path.resolve('./', `${symbol}.csv` )) ) {
+            spinner.info(`File '${symbol}.csv' already exists`);
+            return;
+        }
         const cookies = getCookieBySendingADummyRequest(symbol);
         const priceData = cookies.then((response)=>{
             const {crumb,cookieValue} = parseCookie(response);
